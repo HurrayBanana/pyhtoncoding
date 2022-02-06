@@ -1,0 +1,31 @@
+;a semi-colon can be used as a comment
+;lines starting with it are ignored
+;ghost graphic
+bpp:2:
+;4 colour palette
+pal:(0,0,0):
+;white of eyes
+pal:(240,240,255):
+;pupils
+pal:(0,0,255):
+;ghost colour
+pal:(255,0,0):
+;width and height of image
+dim:14:14:
+;size of each pixel
+siz:10:10:
+;pixel data (14x14) colour pen numbers
+pix:0,0,0,0,0,3,3,3,3,0,0,0,0,0:
+pix:0,0,0,3,3,3,3,3,3,3,3,0,0,0:
+pix:0,0,3,3,3,3,3,3,3,3,3,3,0,0:
+pix:0,3,1,1,3,3,3,3,1,1,3,3,3,0:
+pix:0,1,1,1,1,3,3,1,1,1,1,3,3,0:
+pix:0,2,2,1,1,3,3,2,2,1,1,3,3,0:
+pix:3,2,2,1,1,3,3,2,2,1,1,3,3,3:
+pix:3,3,1,1,3,3,3,3,1,1,3,3,3,3:
+pix:3,3,3,3,3,3,3,3,3,3,3,3,3,3:
+pix:3,3,3,3,3,3,3,3,3,3,3,3,3,3:
+pix:3,3,3,3,3,3,3,3,3,3,3,3,3,3:
+pix:3,3,3,3,3,3,3,3,3,3,3,3,3,3:
+pix:3,3,0,3,3,3,0,0,3,3,3,0,3,3:
+pix:3,0,0,0,3,3,0,0,3,3,0,0,0,3:
