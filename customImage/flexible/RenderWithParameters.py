@@ -68,16 +68,6 @@ def drawImage(startx, starty, thispal, scx, scy):
         y += scy
 
 
-def drawTest():
-    pen = pixels[0]
-    pygame.draw.rect(win, pal[pen], (xpos, ypos, sx, sy))
-    pen = pixels[1]
-    pygame.draw.rect(win, pal[pen], (xpos +sx, 100, sx, sy))
-    pen = pixels[2]
-    pygame.draw.rect(win, pal[pen], (xpos, ypos+sy, sx, sy))
-    pen = pixels[3]
-    pygame.draw.rect(win, pal[pen], (xpos+sx, ypos+sy, sx, sy))
-
 '''
 perform any rendering actions after all logic is processed
 '''
@@ -87,12 +77,6 @@ def drawGame():
 
     drawImage(10,10,pal, 10,10)
     drawImage(300,300,pal2,30,20)
-    #drawTest()
-    #draw a test rectangle at x=50,y=40,width=30,height=20
-    #pygame.draw.rect(win, (0,255,0), (50, 40, 30, 20))
-
-    #draw some text in white (r255,g255,b255) at x=10,y=10
-    #win.blit(font.render("version " +str(version), False, (255,255,255)), (10,10))
 
     #shows drawing on screen
     pygame.display.flip()
