@@ -7,7 +7,7 @@ It only looks for wav files in the same folder as the python file.
 The original wav file is rendered at the bottom of the screen in red
 An adjustable version is rendered at the top of the screen in yellow
 
-Program will automatically get you to pick a file
+Program will automatically get you to pick a file, there are a few wav files to get you going
 
 #### File Select mode
 
