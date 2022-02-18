@@ -17,6 +17,7 @@ keys = None
 delta = 0
 deltaF = 0
 gametime = 0
+endnow = False
 ''' ui display system globals '''
 scrWidth = 0
 scrHeight = 0
@@ -178,7 +179,7 @@ def gameLoop():
         keys = pygame.key.get_pressed()
         gameLogic()
         drawGame()
-        if keys[pygame.K_ESCAPE]:
+        if keys[pygame.K_ESCAPE] or endnow:
             running = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -209,7 +210,12 @@ def counters():
         heldtime = 0
         speedscroll = 1
         lwait = 0.15
-#end def counters():        
+#end def counters():
+
+def leave():
+    ''' safe way of getting pygame to quit in the middle of logic operations'''
+    global endnow
+    endnow = True
 
 def gameKeys():
     ''' react to any specific user key presses '''
@@ -221,8 +227,12 @@ def gameKeys():
         if KeyPressed(pygame.K_DOWN) and fileChosen < len(waveFiles)-1:
             fileChosen += 1
         if KeyPressed(pygame.K_RETURN):
-            selectingFile = False
-            loadWavFile(waveFiles[fileChosen])
+            if len(waveFiles) > 0:
+                selectingFile = False
+                loadWavFile(waveFiles[fileChosen])
+            else:
+                leave()
+
     #standard wave UI keys
     else:
         if KeyPressed(pygame.K_f):
@@ -327,17 +337,22 @@ def drawGame():
 def drawFileList(max):
     '''shows the wav files (limited to max) highlights the current selection '''
     pygame.draw.rect(win, (50,50,50), (40,50,scrWidth-80,scrHeight-100))
-    ff = font.render("Use cursor to select file to load, [<--enter] to select", False, (255,255,255))
-    win.blit(ff, (50,110))
-    y = 140
-    for i in range(len(waveFiles)):
-        if i == fileChosen:
-            ff = font.render(waveFiles[i], False, (255,255,255),(0,0,255))
-        else:
-            ff = font.render(waveFiles[i], False, (255,255,255))
+    if len(waveFiles) > 0:
+        ff = font.render("Use cursor to select file to load, [<--enter] to select", False, (255,255,255))
+        win.blit(ff, (50,110))
+        y = 140
+        for i in range(len(waveFiles)):
+            if i == fileChosen:
+                ff = font.render(waveFiles[i], False, (255,255,255),(0,0,255))
+            else:
+                ff = font.render(waveFiles[i], False, (255,255,255))
 
-        win.blit(ff, (60,y))
-        y+= 35
+            win.blit(ff, (60,y))
+            y+= 35
+    else:
+        ff = font.render("No wav Files exist, please place some in this folder", False, (255,255,255))
+        win.blit(ff, (50,110))
+        textWithBox((0,0,255),(222,222,0),(40,200),scrWidth-80, False, "Please press Enter to quit")
 #end def drawFileList(max):
 
 def drawUI(samplestart):
@@ -434,7 +449,7 @@ def main():
     win = pygame.display.set_mode((1000, 800))
     font = pygame.font.SysFont("monospace",20)
     screenMetrics()
-    getwavFiles()
+    #getwavFiles()
     gametime = pygame.time.get_ticks()
     gameLoop()
 
