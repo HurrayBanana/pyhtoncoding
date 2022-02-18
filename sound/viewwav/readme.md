@@ -11,20 +11,19 @@ Program will automatically get you to pick a file
 
 #### File Select mode
 
-up cursor - move up list
-down cursor - move down list
-return/enter - select highlighted file, if no wav files exist exits the program
+**up cursor** - move up list  
+**down cursor** - move down list  
+**return/enter** - select highlighted file, if no wav files exist exits the program
 
 #### Wav display mode
 
-f - choose a different file
+**f** - choose a different file  
+**b** - toggle between amplitude blocks or amplitude line for adjusted waveform  
+**o** - toggle adjusted wave overaly on original waveform (only shows once samples reduced)  
+**s** - toggle sample points from adjusted wav displayed on top of original waveform  
 
-b - toggle between amplitude blocks or amplitude line for adjusted waveform
-o - toggle adjusted wave overaly on original waveform (only shows once samples reduced)
-s - toggle sample points from adjusted wav displayed on top of original waveform
-
-q - increase sample skipping (lower sample frequency)
-a - decrease sample skipping (increase sample frequency)
-left/right cursor - move view of waveform shown on screen
-up/down cursors - alter scale of waveform views (increasing/decreasing number of samples shown on screen)
+**q** - increase sample skipping (lower sample frequency)  
+**a** - decrease sample skipping (increase sample frequency)  
+**left/right cursor** - move view of waveform shown on screen  
+**up/down cursors** - alter scale of waveform views (increasing/decreasing number of samples shown on screen)  
 
