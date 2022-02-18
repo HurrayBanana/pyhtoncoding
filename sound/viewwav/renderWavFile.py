@@ -211,7 +211,7 @@ def counters():
         speedscroll = 1
         lwait = 0.15
 #end def counters():
-
+        
 def leave():
     ''' safe way of getting pygame to quit in the middle of logic operations'''
     global endnow
@@ -449,7 +449,7 @@ def main():
     win = pygame.display.set_mode((1000, 800))
     font = pygame.font.SysFont("monospace",20)
     screenMetrics()
-    #getwavFiles()
+    getwavFiles()
     gametime = pygame.time.get_ticks()
     gameLoop()
 
